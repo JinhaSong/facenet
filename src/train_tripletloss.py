@@ -172,7 +172,9 @@ def main(args):
 
             if args.pretrained_model:
                 print('Restoring pretrained model: %s' % args.pretrained_model)
-                saver.restore(sess, os.path.expanduser(args.pretrained_model))
+                ckpt = tf.train.get_checkpoint_state(args.pretrained_model)
+                if ckpt and ckpt.model_checkpoint_path:
+                    saver.restore(sess, ckpt.model_checkpoint_path)
 
             # Training and validation loop
             epoch = 0

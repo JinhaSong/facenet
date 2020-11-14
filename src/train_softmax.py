@@ -198,8 +198,10 @@ def main(args):
         with sess.as_default():
 
             if pretrained_model:
-                print('Restoring pretrained model: %s' % pretrained_model)
-                saver.restore(sess, pretrained_model)
+                print('Restoring pretrained model: %s' % args.pretrained_model)
+                ckpt = tf.train.get_checkpoint_state(args.pretrained_model)
+                if ckpt and ckpt.model_checkpoint_path:
+                    saver.restore(sess, ckpt.model_checkpoint_path)
 
             # Training and validation loop
             print('Running training')
