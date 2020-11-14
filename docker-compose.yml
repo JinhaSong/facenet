@@ -10,7 +10,7 @@ services:
     env_file:
       - "docker-compose-env/main.env"
     volumes:
-      - /media/mmlab/hdd1/Project/FaceNetDataset:/dataset
+      - ~/dataset:/dataset
     expose:
       - "8888"
       - "22"
