@@ -1,5 +1,6 @@
-tensorflow==1.7
-scipy
+numpy==1.16.1
+tensorflow-gpu==1.7
+scipy==1.1.0
 scikit-learn
 opencv-python
 h5py

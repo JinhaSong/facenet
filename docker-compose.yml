@@ -1,0 +1,22 @@
+version: '2.3'
+
+services:
+  main:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    runtime: nvidia
+    restart: always
+    env_file:
+      - "docker-compose-env/main.env"
+    volumes:
+      - /media/mmlab/hdd1/Project/FaceNetDataset:/dataset
+    expose:
+      - "8888"
+      - "22"
+    ports:
+      - "18001:8888"
+      - "11022:22"
+    stdin_open: true
+    tty: true
+
