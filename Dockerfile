@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:9.0-devel-ubuntu16.04
 
 RUN apt-get update \
     && apt-get -y install python3 \
